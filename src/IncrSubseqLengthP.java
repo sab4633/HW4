@@ -42,12 +42,6 @@ public class IncrSubseqLengthP {
         }
 
         for(int i =0; i<n; i++){
-            for(int j=0; j<p;j++){
-                System.out.print(opt[i][j]+ " ");
-            }
-            System.out.println();
-        }
-        for(int i =0; i<n; i++){
             if(maxVal<opt[i][p-1]){
                 maxVal = opt[i][p-1];
             }
