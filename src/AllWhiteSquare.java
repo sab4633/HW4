@@ -43,7 +43,6 @@ public class AllWhiteSquare {
                         }
                         opt[i][j] = min + 1;
                         if (opt[i][j] > max) {
-                            System.out.println(i+" "+j);
                             max = opt[i][j];
                         }
                     }
