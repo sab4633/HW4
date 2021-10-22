@@ -51,12 +51,7 @@ public class AllWhiteSquare {
             }
 
         }
-        for (int i = 0; i < n; i++) { //iterate through input placing each number into the array;
-            for (int j = 0; j < n; j++) {
-                System.out.print(opt[i][j] + " ");
-            }
-            System.out.println();
-        }
+
         System.out.println(max);
     }
 
