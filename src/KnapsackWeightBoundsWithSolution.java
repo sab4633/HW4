@@ -36,7 +36,9 @@ public class KnapsackWeightBoundsWithSolution {
                         opt[j][v] = opt[j-1][v-weights[j-1]]+costs[j-1];
                         act[j][v] = act[j-1][v-weights[j-1]]+weights[j-1];
                     }
-
+                    if(act[j][v] >= w1 && act[j][v]<=w2 && opt[j][v]>maxVal){
+                        maxVal=opt[j][v];
+                    }
 
 
 
@@ -61,17 +63,20 @@ public class KnapsackWeightBoundsWithSolution {
 //            }
 //            System.out.println();
 //        }
-        System.out.println(opt[n][w2]);
+        System.out.println(maxVal);
 
         int weight = w2;
         int j = n;
         int c = opt[j][weight];
+        int[] stack = new int[n];
+        int top = 0;
         while(weight>0 && j>=0){
             while(j>=0 && opt[j][weight] == c ){
                 j--;
             }
             if(j>=0){
-                System.out.print((j+1)+" ");
+                stack[top] = j+1;
+                top++;
                 c = opt[j][weight-weights[j]];
 
                 weight = weight-weights[j];
@@ -82,6 +87,9 @@ public class KnapsackWeightBoundsWithSolution {
             }
 
 
+        }
+        while(top>=0){
+            System.out.print(stack[top]+" ");
         }
 
     }
