@@ -29,16 +29,19 @@ public class KnapsackWeightBoundsWithSolution {
                 opt[j][v] = opt[j-1][v];
                 act[j][v] = act[j-1][v];
                 if(weights[j-1]<=v && opt[j-1][v-weights[j-1]]+costs[j-1] > opt[j][v]){
-                    if(diff ==0 && v==weights[j-1]+ act[j-1][v-weights[j-1]]){
-                        opt[j][v] = opt[j-1][v-weights[j-1]]+costs[j-1];
-                        act[j][v] = act[j-1][v-weights[j-1]]+weights[j-1];
-                    }else if(diff!=0){
-                        opt[j][v] = opt[j-1][v-weights[j-1]]+costs[j-1];
-                        act[j][v] = act[j-1][v-weights[j-1]]+weights[j-1];
-                    }
-                    if(act[j][v] >= w1 && act[j][v]<=w2 && opt[j][v]>maxVal){
-                        maxVal=opt[j][v];
-                    }
+//                    if(diff ==0 && v==weights[j-1]+ act[j-1][v-weights[j-1]]){
+//                        opt[j][v] = opt[j-1][v-weights[j-1]]+costs[j-1];
+//                        act[j][v] = act[j-1][v-weights[j-1]]+weights[j-1];
+//                    }else if(diff!=0){
+//                        opt[j][v] = opt[j-1][v-weights[j-1]]+costs[j-1];
+//                        act[j][v] = act[j-1][v-weights[j-1]]+weights[j-1];
+//                    }
+//                    if(act[j][v] >= w1 && act[j][v]<=w2 && opt[j][v]>maxVal){
+//                        maxVal=opt[j][v];
+//                    }
+
+                    opt[j][v] = opt[j-1][v-weights[j-1]]+costs[j-1];
+                    act[j][v] = act[j-1][v-weights[j-1]]+weights[j-1];
 
 
 
@@ -56,16 +59,29 @@ public class KnapsackWeightBoundsWithSolution {
 //            }
 //            System.out.println();
 //        }
-//        System.out.println();
-//        for(int i =0; i<=n; i++){
-//            for(int j=0; j<=w2;j++){
-//                System.out.print(opt[i][j]+" ");
-//            }
-//            System.out.println();
-//        }
-        System.out.println(maxVal);
+        System.out.println();
+        for(int i =0; i<=n; i++){
+            for(int j=0; j<=w2;j++){
+                System.out.print(opt[i][j]+" ");
+            }
+            System.out.println();
+        }
+        if(maxVal==0){
+            maxVal =-1;
+        }
 
-        int weight = w2;
+
+
+        int val = 0;
+        int indval = 0;
+        for(int i = w1; i<=w2; i++){
+            if(opt[n][i]>val){
+                val = opt[n][i];
+                indval = i;
+            }
+        }
+        System.out.println(val);
+        int weight = indval;
         int j = n;
         int c = opt[j][weight];
         int[] stack = new int[n];
