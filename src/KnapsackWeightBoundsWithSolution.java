@@ -61,7 +61,7 @@ public class KnapsackWeightBoundsWithSolution {
 //            }
 //            System.out.println();
 //        }
-//        System.out.println(opt[n][w2]);
+        System.out.println(opt[n][w2]);
 
         int weight = w2;
         int j = n;
