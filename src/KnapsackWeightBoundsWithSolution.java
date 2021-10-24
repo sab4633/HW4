@@ -75,7 +75,7 @@ public class KnapsackWeightBoundsWithSolution {
                 j--;
             }
             if(j>=0){
-                stack[top] = j+1;
+                stack[top] = j;
                 top++;
                 c = opt[j][weight-weights[j]];
 
@@ -88,8 +88,9 @@ public class KnapsackWeightBoundsWithSolution {
 
 
         }
+        top--;
         while(top>=0){
-            System.out.print(stack[top]+" ");
+            System.out.print((stack[top]+1)+" ");
             top--;
         }
 
