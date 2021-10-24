@@ -42,8 +42,7 @@ public class KnapsackWeightBoundsWithSolution {
                         maxw = v;
                     }
 
-                    opt[j][v] = opt[j-1][v-weights[j-1]]+costs[j-1];
-                    act[j][v] = act[j-1][v-weights[j-1]]+weights[j-1];
+
 
 
 
