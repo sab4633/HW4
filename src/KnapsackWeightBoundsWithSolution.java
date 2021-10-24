@@ -90,6 +90,7 @@ public class KnapsackWeightBoundsWithSolution {
         }
         while(top>=0){
             System.out.print(stack[top]+" ");
+            top--;
         }
 
     }
