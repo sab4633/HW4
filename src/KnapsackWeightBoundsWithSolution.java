@@ -59,13 +59,13 @@ public class KnapsackWeightBoundsWithSolution {
 //            }
 //            System.out.println();
 //        }
-        System.out.println();
-        for(int i =0; i<=n; i++){
-            for(int j=0; j<=w2;j++){
-                System.out.print(opt[i][j]+" ");
-            }
-            System.out.println();
-        }
+//        System.out.println();
+//        for(int i =0; i<=n; i++){
+//            for(int j=0; j<=w2;j++){
+//                System.out.print(opt[i][j]+" ");
+//            }
+//            System.out.println();
+//        }
         if(maxVal==0){
             maxVal =-1;
         }
