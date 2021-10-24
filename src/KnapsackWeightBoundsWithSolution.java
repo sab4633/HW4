@@ -27,30 +27,41 @@ public class KnapsackWeightBoundsWithSolution {
         for(int v = 1; v<=w2;v++){
             for(int j= 1;j<=n;j++){
                 opt[j][v] = opt[j-1][v];
+                act[j][v] = act[j-1][v];
                 if(weights[j-1]<=v && opt[j-1][v-weights[j-1]]+costs[j-1] > opt[j][v]){
+                    if(diff ==0 && v==weights[j-1]+ act[j-1][v-weights[j-1]]){
+                        opt[j][v] = opt[j-1][v-weights[j-1]]+costs[j-1];
+                        act[j][v] = act[j-1][v-weights[j-1]]+weights[j-1];
+                    }else if(diff!=0){
+                        opt[j][v] = opt[j-1][v-weights[j-1]]+costs[j-1];
+                        act[j][v] = act[j-1][v-weights[j-1]]+weights[j-1];
+                    }
 
-                    opt[j][v] = opt[j-1][v-weights[j-1]]+costs[j-1];
+
 
 
 
                 }
-                System.out.println(j);
-                if (v >= w1 && opt[j][v] > maxVal) {
-                    maxVal = opt[j][v];//store the minimum cost when the weight is >= minW
-                }
+
 
 
             }
         }
-
-        System.out.println();
-        for(int i =0; i<=n; i++){
-            for(int j=0; j<=w2;j++){
-                System.out.print(opt[i][j]+" ");
-            }
-            System.out.println();
-        }
-        System.out.println("MAX"+maxVal);
+//        System.out.println();
+//        for(int i =0; i<=n; i++){
+//            for(int j=0; j<=w2;j++){
+//                System.out.print(act[i][j]+" ");
+//            }
+//            System.out.println();
+//        }
+//        System.out.println();
+//        for(int i =0; i<=n; i++){
+//            for(int j=0; j<=w2;j++){
+//                System.out.print(opt[i][j]+" ");
+//            }
+//            System.out.println();
+//        }
+//        System.out.println(opt[n][w2]);
 
         int weight = w2;
         int j = n;
@@ -60,7 +71,7 @@ public class KnapsackWeightBoundsWithSolution {
                 j--;
             }
             if(j>=0){
-                System.out.println((j+1)+" "+weights[j]);
+                System.out.print((j+1)+" ");
                 c = opt[j][weight-weights[j]];
 
                 weight = weight-weights[j];
@@ -72,7 +83,6 @@ public class KnapsackWeightBoundsWithSolution {
 
 
         }
-        System.out.println(weight);
 
     }
 }
