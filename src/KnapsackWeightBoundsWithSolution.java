@@ -24,6 +24,7 @@ public class KnapsackWeightBoundsWithSolution {
             act[i][0] = 0;
         }
         int maxVal = 0;
+        int maxw = 0;
         for(int v = 1; v<=w2;v++){
             for(int j= 1;j<=n;j++){
                 opt[j][v] = opt[j-1][v];
@@ -38,6 +39,7 @@ public class KnapsackWeightBoundsWithSolution {
                     }
                     if(act[j][v] >= w1 && act[j][v]<=w2 && opt[j][v]>maxVal){
                         maxVal=opt[j][v];
+                        maxw = v;
                     }
 
                     opt[j][v] = opt[j-1][v-weights[j-1]]+costs[j-1];
@@ -72,16 +74,9 @@ public class KnapsackWeightBoundsWithSolution {
 
 
 
-        int val = 0;
-        int indval = 0;
-        for(int i = w1; i<=w2; i++){
-            if(opt[n][i]>val){
-                val = opt[n][i];
-                indval = i;
-            }
-        }
+
         System.out.println(maxVal);
-        int weight = indval;
+        int weight = maxw;
         int j = n;
         int c = opt[j][weight];
         int[] stack = new int[n];
