@@ -75,9 +75,7 @@ public class MatrixChainParenthesize {
             int newk = ktable[k1][k2];
             recursiveParenth(parenthL, parenthR, k1,newk,ktable);
             parenthL[k1]++;
-            parenthR[newk]++;
             recursiveParenth(parenthL, parenthR, newk+1,k2,ktable);
-            parenthL[newk+1]++;
             parenthR[k2]++;
             return;
 
