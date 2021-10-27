@@ -8,8 +8,8 @@ import java.util.Scanner;
 public class IncrSubseqLengthP {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int p = sc.nextInt();
+        int n = sc.nextInt(); //length of sequence
+        int p = sc.nextInt(); //length of subsequence
         int[] nums = new int[n];
         for (int i =0; i < n; i++) { //iterate through input placing each number into the array;
             nums[i] = sc.nextInt();
@@ -40,6 +40,13 @@ public class IncrSubseqLengthP {
             }
 
 
+        }
+
+        for(int i = 0; i < n; i++) { //iterate each value of the array
+            for (int j = 0; j < p; j++) { //solve for each previous index
+                System.out.print(opt[i][j] + " ");
+            }
+            System.out.println();
         }
 
         int maxVal = 0; //find max total

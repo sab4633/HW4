@@ -30,12 +30,9 @@ public class KnapsackWeightBoundsWithSolution {
                 opt[j][v] = opt[j-1][v];
                 act[j][v] = act[j-1][v];
                 if(weights[j-1]<=v && opt[j-1][v-weights[j-1]]+costs[j-1] > opt[j][v]){
-                    if(diff == 0 && v==weights[j-1]+ act[j-1][v-weights[j-1]]) {
+                    if(v==weights[j-1]+ act[j-1][v-weights[j-1]]) {
                         opt[j][v] = opt[j - 1][v - weights[j - 1]] + costs[j - 1];
                         act[j][v] = act[j - 1][v - weights[j - 1]] + weights[j - 1];
-                    }else if(diff!=0){
-                        opt[j][v] = opt[j-1][v-weights[j-1]]+costs[j-1];
-                        act[j][v] = act[j-1][v-weights[j-1]]+weights[j-1];
                     }
                     if(act[j][v] >= w1 && opt[j][v]>maxVal){
                         maxVal=opt[j][v];
